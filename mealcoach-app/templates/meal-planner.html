@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .message.user {
+            background-color: #e0f7fa;
+            text-align: right;
+        }
+        .message.assistant {
+            background-color: #f1f8e9;
+            text-align: left;
+        }
+        .message p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 20px; text-align: center; font-size: 1.5em; font-weight: bold;">
+        🍎🍔🍕🥗🍣🍩🍇🍗🍜🍞 Meal Coach 🍎🍔🍕🥗🍣🍩🍇🍗🍜🍞
+        <div style="font-size: 0.8em; font-weight: normal; margin-top: 5px;">we understand your meal needs</div>
+    </header>
+    <div style="display: flex; justify-content: space-between; gap: 20px;">
+        <!-- Chat Container -->
+        <div class="container" style="flex: 1; max-width: 50%; height: 400px; overflow-y: auto; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" id="chat-container">
+            {% for message in conversation_log %}
+            {% if message.role in ['user', 'assistant'] %}
+            {% if message.content %}
+            <div class="message {{ 'user' if message.role == 'user' else 'assistant' }}">
+            <p><strong>{{ username if message.role == 'user' else 'Meal Coach' }}:</strong> {{ message.content }}</p>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <script>
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        </script>
+
+        <!-- Meal Details Container -->
+        {% if meal_details %}
+        <div class="container" style="flex: 1; max-width: 50%; height: 400px; overflow-y: auto; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            {% for meal_detail in meal_details %}
+            <div class="meal-details-container" style="padding: 10px; margin-bottom: 10px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                <td style="width: 30%; vertical-align: top; padding: 10px;"></td>
+                    <img src="{{ meal_detail.strMealThumb }}" alt="{{ meal_detail.strMeal }}" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                </td>
+                <td style="width: 70%; vertical-align: top; padding: 10px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding-bottom: 10px;">
+                        <h2 style="margin: 0; font-size: 1.5em; color: #333;">{{ meal_detail.strMeal }}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-bottom: 5px;">
+                        <p style="margin: 0; font-size: 1em; color: #555;"><strong>Category:</strong> {{ meal_detail.strCategory }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <p style="margin: 0; font-size: 1em; color: #555;"><strong>Cuisine:</strong> {{ meal_detail.strArea }}</p>
+                        </td>
+                    </tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+            <p><strong>Instructions:</strong> {{ meal_detail.strInstructions }}</p>
+            <ul>
+                {% for i in range(1, 21) %}
+                {% if meal_detail['strIngredient' ~ i] and meal_detail['strIngredient' ~ i] != '' %}
+                <li><strong>{{ meal_detail['strIngredient' ~ i] }}:</strong> {{ meal_detail['strMeasure' ~ i] }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% if meal_detail.strYoutube %}
+            <p><strong>Watch on YouTube:</strong></p>
+            <iframe width="100%" height="157" src="{{ meal_detail.strYoutube | replace('watch?v=', 'embed/') }}" frameborder="0" allowfullscreen></iframe>
+            {% endif %}
+            </div>
+            <hr style="border: none; border-top: 2px dashed #ccc; margin: 20px 0;">
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;"></div>
+        <form action="/conversation-handler" method="POST" style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px;">
+            <input type="text" name="message" placeholder="Type your message here..." style="width: 70%; padding: 10px; border-radius: 20px; border: 1px solid #ccc; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);" required autofocus>
+            <button type="submit" style="padding: 10px 20px; border-radius: 20px; border: none; background-color: #007BFF; color: white; cursor: pointer; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">Send</button>
+        </form>
+    </div>
+</body>
+</html></div>

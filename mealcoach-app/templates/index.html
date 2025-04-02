@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Coach</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20%;
+        }
+        h1 {
+            color: #343a40;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Meal Coach</h1>
+        <p>Your personalized meal coach.</p>
+        <p>I'll help you prepare a meal based on your health objectives</p>
+        <form action="/meal-planner" method="POST">
+            <input type="text" name="username" placeholder="Enter your name" required style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;">
+            <br>
+            <button type="submit">Get Meal Recommendation</button>
+        </form>
+    </div>
+</body>
+</html>
