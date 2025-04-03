@@ -28,7 +28,7 @@ def meal_planner():
     global conversation_log
     global meal_details
     if request.method == 'POST':
-        username = request.form.get('username')
+        username = request.form.get('username', username)
         conversation_log = []
         meal_details = []
         conversation_log.append(initialize_conversation(username))
