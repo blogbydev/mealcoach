@@ -19,7 +19,7 @@ conversation_log = []
 meal_details = []
 
 @app.route('/')
-def hello_world():
+def home_page():
     return render_template('index.html')
 
 @app.route('/meal-planner', methods=['GET', 'POST'])
