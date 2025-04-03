@@ -57,27 +57,32 @@ def conversation_handler():
     if(is_intent_confirmed == 'yes'):
         append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
         meals_suggested_by_assistant = extract_python_dictionary(response)
-        meals = []
 
         if isinstance(meals_suggested_by_assistant, dict) and 'meals' in meals_suggested_by_assistant:
             meals_suggested_by_assistant = meals_suggested_by_assistant['meals']
 
-        for meal_suggested in meals_suggested_by_assistant:
-            main_ingredient = meal_suggested['main_ingredient']
-            meals_available = themealdbapi.filter_meal_by_ingredient([main_ingredient])
-            if meals_available['meals'] != None:
-                meals.extend(meals_available['meals'])
-        meal_ids = [meal['idMeal'] for meal in meals]
-        # select top 5 meals
-        meal_ids = list(set(meal_ids))[:5]
-        for meal_id in meal_ids:
-            meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
+        meal_details = get_meals(meals_suggested_by_assistant)
     else:
         meal_details.clear()
         append_message_to_conversation(conversation_log, response, 'assistant')
     
     return redirect(url_for('meal_planner', method='POST'))
 
+
+def get_meals(meals_suggested_by_assistant):
+    meals = []
+    meal_details = []
+    for meal_suggested in meals_suggested_by_assistant:
+        main_ingredient = meal_suggested['main_ingredient']
+        meals_available = themealdbapi.filter_meal_by_ingredient([main_ingredient])
+        if meals_available['meals'] != None:
+            meals.extend(meals_available['meals'])
+        meal_ids = [meal['idMeal'] for meal in meals]
+        # select top 5 meals
+        meal_ids = list(set(meal_ids))[:5]
+        for meal_id in meal_ids:
+            meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
+    return meal_details
 
 if __name__ == '__main__':
     app.run(debug=True)
