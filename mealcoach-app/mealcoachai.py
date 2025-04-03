@@ -127,4 +127,4 @@ def extract_python_dictionary(text):
 
     conversation = [{"role": "system", "content": prompt}]
     response = get_chat_model_completions(conversation)
-    return response
+    return json.loads(response)
