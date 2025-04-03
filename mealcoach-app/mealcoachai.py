@@ -1,26 +1,53 @@
+"""
+This file contains the implementation of a meal planning assistant using OpenAI's API. 
+The assistant interacts with users to understand their health objectives and dietary preferences, 
+and generates meal recommendations based on the input. It also includes utility functions for 
+conversation management, moderation, and validation of the generated output.
+
+Functions:
+- get_chat_model_completions: Handles interactions with the OpenAI chat model, including tool calls.
+- is_flagged_text: Checks if the user input contains flagged content using OpenAI's moderation API.
+- append_message_to_conversation: Appends a message to the conversation log with a specified role.
+- initialize_conversation: Initializes the conversation with a system prompt for the meal planning assistant.
+- intent_confirmation: Validates if the response contains a list of meals with the required structure.
+- extract_python_dictionary: Extracts a Python dictionary containing meal details from a given text.
+"""
+
 import openai, json
 
 file_path = './OPENAI_API_KEY.txt'
 with open(file_path, 'r') as file:
     openai.api_key = file.readline()
 
-def get_chat_model_completions(messages, call_function = None, tools=None):
+def get_chat_model_completions(messages, call_function=None, tools=None):
+    """
+    Interacts with the OpenAI chat model to generate responses based on the provided messages.
+    Handles tool calls if required and recursively processes the conversation.
+    
+    Args:
+        messages (list): The conversation log containing messages exchanged with the model.
+        call_function (function): A callback function to handle tool calls (optional).
+        tools (list): A list of tools available for the model to use (optional).
+    
+    Returns:
+        str: The content of the response message or the result of recursive processing.
+    """
     response = openai.chat.completions.create(
-        model = 'gpt-4o-mini',
-        messages = messages,
-        temperature = 0,
-        tools = tools
+        model='gpt-4o-mini',
+        messages=messages,
+        temperature=0,
+        tools=tools
     )
 
     finish_reason = response.choices[0].finish_reason
     response_message = response.choices[0].message
-    if(finish_reason == 'stop'):
+    if finish_reason == 'stop':
         return response_message.content
-    if(finish_reason == 'tool_calls'):
+    if finish_reason == 'tool_calls':
         print('will make tool calls')
         tool_calls = response_message.tool_calls
 
-        if(tool_calls):
+        if tool_calls:
             messages.append(response_message.model_dump())
         
             for tool_call in tool_calls:
@@ -41,14 +68,41 @@ def get_chat_model_completions(messages, call_function = None, tools=None):
         return get_chat_model_completions(messages, call_function, tools)
 
 def is_flagged_text(user_input):
+    """
+    Checks if the user input contains flagged content using OpenAI's moderation API.
+    
+    Args:
+        user_input (str): The input text to be checked.
+    
+    Returns:
+        bool: True if the input is flagged, False otherwise.
+    """
     response = openai.moderations.create(input=user_input)
     flagged = response.results[0].flagged
     return flagged
 
 def append_message_to_conversation(conversation_log, message, role):
+    """
+    Appends a message to the conversation log with the specified role.
+    
+    Args:
+        conversation_log (list): The conversation log to which the message will be appended.
+        message (str): The content of the message.
+        role (str): The role of the message (e.g., "user", "assistant", "system").
+    """
     conversation_log.append({"role": role, "content": message})
 
 def initialize_conversation(username):
+    """
+    Initializes the conversation with a system prompt for the meal planning assistant.
+    The prompt includes instructions for the assistant and a personalized greeting for the user.
+    
+    Args:
+        username (str): The name of the user.
+    
+    Returns:
+        dict: A dictionary containing the system prompt with the role and content.
+    """
     sample_food_categories = "Vegan, Vegetarian, etc."
     sample_food_ingredient = "Tofu, Rice, Chicken, etc."
     
@@ -96,6 +150,15 @@ def initialize_conversation(username):
     return prompt_with_role
 
 def intent_confirmation(response_mealcoach_assistant):
+    """
+    Validates if the response contains a list of meals with the required structure.
+    
+    Args:
+        response_mealcoach_assistant (str): The response text to be validated.
+    
+    Returns:
+        str: "yes" if the response contains the required structure, "no" otherwise.
+    """
     delimiter = "#######"
     prompt = f"""
         You are a senior evaluator and a python expert.
@@ -115,6 +178,15 @@ def intent_confirmation(response_mealcoach_assistant):
     return response
 
 def extract_python_dictionary(text):
+    """
+    Extracts a Python dictionary containing meal details from the given text.
+    
+    Args:
+        text (str): The input text containing meal details.
+    
+    Returns:
+        dict: A Python dictionary containing the list of meals.
+    """
     prompt = f"""
 
     You are a python expert.
