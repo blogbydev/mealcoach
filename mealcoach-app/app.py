@@ -30,17 +30,32 @@ def validate_message(message):
         
         raise ValueError("Message flagged for inappropriate content.")
 
+def validate_username(username):
+    if is_flagged_text(username):
+        raise ValueError("Username flagged for inappropriate content.")
+
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     global username
     if request.method == 'POST':
-        username = request.form.get('username')
-        conversation_log.clear()
-        meal_details.clear()
-        conversation_log.append(initialize_conversation(username))
-        response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-        append_message_to_conversation(conversation_log, response, 'assistant')
-        return redirect(url_for('meal_planner', method='POST'))
+        try:
+            username = request.form.get('username')
+            validate_username(username)
+
+            conversation_log.clear()
+            meal_details.clear()
+            conversation_log.append(initialize_conversation(username))
+            response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
+            validate_message(response)
+
+            append_message_to_conversation(conversation_log, response, 'assistant')
+            return redirect(url_for('meal_planner', method='POST'))
+        except ValueError as e:
+            print(f'Error: {e}')
+            return render_template('index.html', error=str(e))
+        except Exception as e:
+            print(f'Error: {e}')
+            return render_template('index.html', error="An unexpected error occurred.")
     else:
         username = ""
         conversation_log.clear()
