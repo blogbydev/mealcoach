@@ -48,6 +48,11 @@ def conversation_handler():
     message = request.form.get('message')
     if is_flagged_text(message):
         append_message_to_conversation(conversation_log, "Your message was flagged for inappropriate content.", 'assistant')
+        append_message_to_conversation(conversation_log, "Let's start over", 'assistant')
+        conversation_log.append(initialize_conversation(username))
+        response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
+        append_message_to_conversation(conversation_log, response, 'assistant')
+        meal_details.clear()
         return redirect(url_for('meal_planner', method='POST'))
     
     conversation_log.append({"role": "user", "content": message})
@@ -77,11 +82,11 @@ def get_meals(meals_suggested_by_assistant):
         meals_available = themealdbapi.filter_meal_by_ingredient([main_ingredient])
         if meals_available['meals'] != None:
             meals.extend(meals_available['meals'])
-        meal_ids = [meal['idMeal'] for meal in meals]
-        # select top 5 meals
-        meal_ids = list(set(meal_ids))[:5]
-        for meal_id in meal_ids:
-            meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
+    meal_ids = [meal['idMeal'] for meal in meals]
+    # select top 5 meals
+    meal_ids = list(set(meal_ids))[:5]
+    for meal_id in meal_ids:
+        meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
     return meal_details
 
 if __name__ == '__main__':
