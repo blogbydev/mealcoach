@@ -18,11 +18,25 @@ username = ""
 conversation_log = []
 meal_details = []
 
+def validate_message(message):
+    if is_flagged_text(message):
+        conversation_log.clear()
+        meal_details.clear()
+        append_message_to_conversation(conversation_log, "Your message was flagged for inappropriate content.", 'assistant')
+        append_message_to_conversation(conversation_log, "Let's start over", 'assistant')
+        conversation_log.append(initialize_conversation(username))
+        response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
+        append_message_to_conversation(conversation_log, response, 'assistant')
+        
+        raise ValueError("Message flagged for inappropriate content.")
+
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     global username
     if request.method == 'POST':
         username = request.form.get('username')
+        conversation_log.clear()
+        meal_details.clear()
         conversation_log.append(initialize_conversation(username))
         response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
         append_message_to_conversation(conversation_log, response, 'assistant')
@@ -45,31 +59,32 @@ def meal_planner():
 def conversation_handler():
     global conversation_log
     global meal_details
-    message = request.form.get('message')
-    if is_flagged_text(message):
-        append_message_to_conversation(conversation_log, "Your message was flagged for inappropriate content.", 'assistant')
-        append_message_to_conversation(conversation_log, "Let's start over", 'assistant')
-        conversation_log.append(initialize_conversation(username))
+    try:
+        message = request.form.get('message')
+        validate_message(message)
+        
+        conversation_log.append({"role": "user", "content": message})
         response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-        append_message_to_conversation(conversation_log, response, 'assistant')
-        meal_details.clear()
-        return redirect(url_for('meal_planner', method='POST'))
-    
-    conversation_log.append({"role": "user", "content": message})
-    response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-    
-    is_intent_confirmed = intent_confirmation(response)
-    if(is_intent_confirmed == 'yes'):
-        append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
-        meals_suggested_by_assistant = extract_python_dictionary(response)
+        validate_message(response)
+        
+        is_intent_confirmed = intent_confirmation(response)
+        validate_message(is_intent_confirmed)
 
-        if isinstance(meals_suggested_by_assistant, dict) and 'meals' in meals_suggested_by_assistant:
-            meals_suggested_by_assistant = meals_suggested_by_assistant['meals']
+        if is_intent_confirmed == 'yes':
+            append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
+            meals_suggested_by_assistant = extract_python_dictionary(response)
 
-        meal_details = get_meals(meals_suggested_by_assistant)
-    else:
-        meal_details.clear()
-        append_message_to_conversation(conversation_log, response, 'assistant')
+            if isinstance(meals_suggested_by_assistant, dict) and 'meals' in meals_suggested_by_assistant:
+                meals_suggested_by_assistant = meals_suggested_by_assistant['meals']
+
+            meal_details = get_meals(meals_suggested_by_assistant)
+        else:
+            meal_details.clear()
+            append_message_to_conversation(conversation_log, response, 'assistant')
+    except ValueError as e:
+        print(f'Error: {e}')
+    except Exception as e:
+        print(f'Error: {e}')
     
     return redirect(url_for('meal_planner', method='POST'))
 
