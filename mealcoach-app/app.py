@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template
 from flask import request
 from flask import redirect, url_for
@@ -18,8 +19,20 @@ username = ""
 conversation_log = []
 meal_details = []
 
+def reset_conversation():
+    global conversation_log
+    global meal_details
+    conversation_log = []
+    meal_details = []
+
+def validate_message(message):
+    if is_flagged_text(message):
+        reset_conversation()
+        append_message_to_conversation(conversation_log, "Your message was flagged for inappropriate content.", 'assistant')
+        return redirect(url_for('meal_planner', method='POST'))
+
 @app.route('/')
-def hello_world():
+def welcome_page():
     return render_template('index.html')
 
 @app.route('/meal-planner', methods=['GET', 'POST'])
@@ -29,13 +42,11 @@ def meal_planner():
     global meal_details
     if request.method == 'POST':
         username = request.form.get('username')
-        conversation_log = []
-        meal_details = []
+        reset_conversation()
         conversation_log.append(initialize_conversation(username))
         response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
+        validate_message(response)
         append_message_to_conversation(conversation_log, response, 'assistant')
-    print('############conversation log')
-    print(conversation_log)
     return render_template('meal-planner.html',username=username, conversation_log=conversation_log, meal_details=meal_details)
 
 
@@ -43,21 +54,22 @@ def meal_planner():
 def conversation_handler():
     global conversation_log
     global meal_details
+
     message = request.form.get('message')
-    if is_flagged_text(message):
-        append_message_to_conversation(conversation_log, "Your message was flagged for inappropriate content.", 'assistant')
-        return redirect(url_for('meal_planner', method='POST'))
+    validate_message(message)
     
     conversation_log.append({"role": "user", "content": message})
     response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-    append_message_to_conversation(conversation_log, response, 'assistant')
-
+    validate_message(response)
+    
     is_intent_confirmed = intent_confirmation(response)
+    validate_message(is_intent_confirmed)
+
     if(is_intent_confirmed == 'yes'):
-        print('Intent confirmed')
-        conversation_log.pop()
         append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
         meals_suggested_by_assistant = extract_python_dictionary(response)
+        validate_message(meals_suggested_by_assistant)
+        meals_suggested_by_assistant = json.loads(meals_suggested_by_assistant)
         meals = []
 
         if isinstance(meals_suggested_by_assistant, dict) and 'meals' in meals_suggested_by_assistant:
@@ -65,15 +77,17 @@ def conversation_handler():
 
         for meal_suggested in meals_suggested_by_assistant:
             main_ingredient = meal_suggested['main_ingredient']
-            print(main_ingredient)
             meals_available = themealdbapi.filter_meal_by_ingredient([main_ingredient])
             if meals_available['meals'] != None:
                 meals.extend(meals_available['meals'])
         meal_ids = [meal['idMeal'] for meal in meals]
+
         # select top 5 meals
         meal_ids = list(set(meal_ids))[:5]
         for meal_id in meal_ids:
             meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
+    else:
+        append_message_to_conversation(conversation_log, response, 'assistant')
     
     return redirect(url_for('meal_planner', method='POST'))
 
