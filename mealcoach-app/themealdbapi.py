@@ -2,7 +2,8 @@ import requests
 
 class TheMealDBAPI:
     def __init__(self, api_key):
-        self.base_url = f"https://www.themealdb.com/api/json/v2/{api_key}"
+        # self.base_url = f"https://www.themealdb.com/api/json/v2/{api_key}"
+        self.base_url = f"https://www.themealdb.com/api/json/v1/1"
     
     def get_all_food_categories(self):
         response = requests.get(f'{self.base_url}/list.php?c=list').json()
@@ -23,8 +24,8 @@ class TheMealDBAPI:
         return response
 
 mealdb_api_key = None
-with open('./MEALDB_API_KEY.txt') as file:
-    mealdb_api_key = file.readline()
+# with open('./MEALDB_API_KEY.txt') as file:
+    # mealdb_api_key = file.readline()
 themealdbapi = TheMealDBAPI(mealdb_api_key)
 
 # create function map
