@@ -73,6 +73,7 @@ def conversation_handler():
         for meal_id in meal_ids:
             meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
     else:
+        meal_details.clear()
         append_message_to_conversation(conversation_log, response, 'assistant')
     
     return redirect(url_for('meal_planner', method='POST'))
