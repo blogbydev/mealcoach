@@ -48,11 +48,9 @@ def conversation_handler():
     
     conversation_log.append({"role": "user", "content": message})
     response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-    append_message_to_conversation(conversation_log, response, 'assistant')
-
+    
     is_intent_confirmed = intent_confirmation(response)
     if(is_intent_confirmed == 'yes'):
-        conversation_log.pop()
         append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
         meals_suggested_by_assistant = extract_python_dictionary(response)
         meals = []
@@ -70,6 +68,8 @@ def conversation_handler():
         meal_ids = list(set(meal_ids))[:5]
         for meal_id in meal_ids:
             meal_details.append(themealdbapi.get_meal_details_by_id(meal_id)['meals'][0])
+    else:
+        append_message_to_conversation(conversation_log, response, 'assistant')
     
     return redirect(url_for('meal_planner', method='POST'))
 
