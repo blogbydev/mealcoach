@@ -18,22 +18,26 @@ username = ""
 conversation_log = []
 meal_details = []
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home_page():
-    return render_template('index.html')
+    global username
+    if request.method == 'POST':
+        username = request.form.get('username')
+        conversation_log.append(initialize_conversation(username))
+        response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
+        append_message_to_conversation(conversation_log, response, 'assistant')
+        return redirect(url_for('meal_planner', method='POST'))
+    else:
+        username = ""
+        conversation_log.clear()
+        meal_details.clear()
+        return render_template('index.html')
 
-@app.route('/meal-planner', methods=['GET', 'POST'])
+@app.route('/meal-planner')
 def meal_planner():
     global username
     global conversation_log
     global meal_details
-    if request.method == 'POST':
-        username = request.form.get('username', username)
-        conversation_log = []
-        meal_details = []
-        conversation_log.append(initialize_conversation(username))
-        response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
-        append_message_to_conversation(conversation_log, response, 'assistant')
     return render_template('meal-planner.html',username=username, conversation_log=conversation_log, meal_details=meal_details)
 
 
