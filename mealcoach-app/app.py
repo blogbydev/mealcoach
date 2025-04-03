@@ -34,8 +34,6 @@ def meal_planner():
         conversation_log.append(initialize_conversation(username))
         response = get_chat_model_completions(conversation_log, call_function, themealdb_tools)
         append_message_to_conversation(conversation_log, response, 'assistant')
-    print('############conversation log')
-    print(conversation_log)
     return render_template('meal-planner.html',username=username, conversation_log=conversation_log, meal_details=meal_details)
 
 
@@ -54,7 +52,6 @@ def conversation_handler():
 
     is_intent_confirmed = intent_confirmation(response)
     if(is_intent_confirmed == 'yes'):
-        print('Intent confirmed')
         conversation_log.pop()
         append_message_to_conversation(conversation_log, "Thank you for providing your inputs, let me show you some recipes", 'assistant')
         meals_suggested_by_assistant = extract_python_dictionary(response)
@@ -65,7 +62,6 @@ def conversation_handler():
 
         for meal_suggested in meals_suggested_by_assistant:
             main_ingredient = meal_suggested['main_ingredient']
-            print(main_ingredient)
             meals_available = themealdbapi.filter_meal_by_ingredient([main_ingredient])
             if meals_available['meals'] != None:
                 meals.extend(meals_available['meals'])
