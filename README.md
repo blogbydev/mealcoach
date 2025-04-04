@@ -1,12 +1,13 @@
 # MealCoach
 ![MealCoach](readme-images/meal-planner-ui.png)
 
+## Project Overview
 MealCoach is a personalized meal planning application designed to help users create healthy, balanced, and customized meal plans. By leveraging AI and external APIs, MealCoach provides users with tailored meal suggestions based on their dietary preferences, restrictions, and goals.
 
 ## Features
 
-- **Personalized Meal Plans**: Generate meal plans based on user preferences, including dietary restrictions, calorie goals, and cuisine types.
-- **Recipe Suggestions**: Access a wide variety of recipes sourced from TheMealDB API.
+- **Personalized Meal Plans**: Generate meal plans based on user preferences, including dietary restrictions, and cuisine types.
+- **Recipe Suggestions**: Access a wide variety of recipes sourced from [TheMealDB API](https://www.themealdb.com/api.php).
 - **Interactive User Interface**: A clean and intuitive web interface for users to easily navigate and plan their meals. The User can restart the conversation at any time.
 - **AI-Powered Recommendations**: Utilize AI to suggest meals that align with user preferences and nutritional goals. Moderation checks are performed to ensure user input is appropriate.
 
@@ -17,13 +18,45 @@ MealCoach is a personalized meal planning application designed to help users cre
 3. **Recipe Integration**: Recipes are fetched from TheMealDB API and displayed to the user.
 4. **Meal Plan Generation**: Users can view and customize their meal plans.
 
-## Technologies Used
+## User Experience
 
-- **Backend**: Python (Flask)
-- **Frontend**: HTML, CSS (via templates)
-- **API Integration**: [TheMealDB API](https://www.themealdb.com/api.php) for recipe data
-- **AI**: Custom AI logic for meal recommendations
-- **Dependencies**: Managed via `requirements.txt`
+### Home Page
+![Home Page](readme-images/home-page-ui.png)
+
+### Home Page inappropriate username
+![Home Page inappropriate username](readme-images/home-page-inappropriate-username-ui.png)
+
+### Meal Planner introduction
+![Meal Planner introduction](readme-images/meal-planner-introduction-ui.png)
+
+### Meal Planner recommendations
+![Meal Planner recommendations](readme-images/meal-planner-recommendation-ui.png)
+
+### Start over the conversation
+![Start over the conversation](readme-images/meal-planner-restart-conversation-ui.png)
+
+### Inappropriate conversation
+![Inappropriate conversation](readme-images/meal-planner-inappropriate-conversation-ui.png)
+
+## Challenges Faced
+One of the key challenges faced during the development of MealCoach was integrating recipe suggestions from both OpenAI's language model (LLM) and TheMealDB API. While the LLM provides diverse and personalized recipe recommendations, TheMealDB API offers detailed cooking instructions and YouTube video links, which are essential for an enhanced user experience.
+
+To address this, we decided to use only the "main ingredient" from the LLM's recommendations and fetch corresponding recipes from TheMealDB API. This approach ensures that users receive recipes with complete instructions and multimedia support, while still leveraging the personalization capabilities of the LLM.
+
+### Future Scope
+In the future, we aim to improve the matching process between the LLM's recipe responses and the recipes available in TheMealDB API. This could involve advanced natural language processing techniques to better align the LLM's suggestions with the API's database, ensuring even more accurate and tailored meal recommendations.
+
+# Technical Details
+
+## Getting Started
+
+1. Clone the repository and add your own OPENAI_API_KEY.txt in the mealcoach-app directory.:
+   ```bash
+   git clone https://github.com/yourusername/mealcoach.git
+   cd mealcoach/mealcoach-app
+   pip install -r requirements.txt
+   python app.py
+   ```
 
 ## Folder Structure
 
@@ -106,43 +139,3 @@ This process ensures that the user receives personalized meal suggestions tailor
 
 ### App Backend details
 ![App Backend Details](readme-images/app-backend-details.png)
-
-## User Experience
-
-### Home Page
-![Home Page](readme-images/home-page-ui.png)
-
-### Home Page inappropriate username
-![Home Page inappropriate username](readme-images/home-page-inappropriate-username-ui.png)
-
-### Meal Planner introduction
-![Meal Planner introduction](readme-images/meal-planner-introduction-ui.png)
-
-### Meal Planner recommendations
-![Meal Planner recommendations](readme-images/meal-planner-recommendation-ui.png)
-
-### Start over the conversation
-![Start over the conversation](readme-images/meal-planner-restart-conversation-ui.png)
-
-### Inappropriate conversation
-![Inappropriate conversation](readme-images/meal-planner-inappropriate-conversation-ui.png)
-
-## Challenges Faced
-
-One of the key challenges faced during the development of MealCoach was integrating recipe suggestions from both OpenAI's language model (LLM) and TheMealDB API. While the LLM provides diverse and personalized recipe recommendations, TheMealDB API offers detailed cooking instructions and YouTube video links, which are essential for an enhanced user experience.
-
-To address this, we decided to use only the "main ingredient" from the LLM's recommendations and fetch corresponding recipes from TheMealDB API. This approach ensures that users receive recipes with complete instructions and multimedia support, while still leveraging the personalization capabilities of the LLM.
-
-### Future Scope
-In the future, we aim to improve the matching process between the LLM's recipe responses and the recipes available in TheMealDB API. This could involve advanced natural language processing techniques to better align the LLM's suggestions with the API's database, ensuring even more accurate and tailored meal recommendations.
-
-## Getting Started
-
-1. Clone the repository and add your own OPENAI_API_KEY.txt in the mealcoach-app directory.:
-   ```bash
-   git clone https://github.com/yourusername/mealcoach.git
-   cd mealcoach/mealcoach-app
-   pip install -r requirements.txt
-   python app.py
-   ```
-
