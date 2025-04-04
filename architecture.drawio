@@ -1,0 +1,387 @@
+<mxfile host="65bd71144e">
+    <diagram id="rM9DuOJ5Ojk6an8O_4wX" name="system context">
+        <mxGraphModel dx="978" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="23" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="sends user&lt;div&gt;queries to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="23">
+                    <mxGeometry x="-0.35" relative="1" as="geometry">
+                        <mxPoint y="14" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="305" y="140" width="195" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="9" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="75" y="70"/>
+                            <mxPoint x="403" y="70"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="interacts with" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="19">
+                    <mxGeometry x="-0.0215" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="140" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="sends&lt;div&gt;responses to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="24">
+                    <mxGeometry x="0.025" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="11" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="depends for natural language processing&lt;div&gt;and knowledge on health objectives and ingredient nutrition&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="27">
+                    <mxGeometry x="0.1875" relative="1" as="geometry">
+                        <mxPoint x="55" y="30" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="depends for names of food categories, food ingredients,&lt;div&gt;recipes, cooking instructions, recipe image and youtube video&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="30">
+                    <mxGeometry x="0.5022" y="-1" relative="1" as="geometry">
+                        <mxPoint x="1" y="16" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="305" y="280" width="195" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="responds to user queries,&lt;div&gt;requests function calls to get&lt;/div&gt;&lt;div&gt;information from themealdp api&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="28">
+                    <mxGeometry x="0.3679" y="1" relative="1" as="geometry">
+                        <mxPoint x="30" y="-7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="410" width="290" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="13" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="responds to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="33">
+                    <mxGeometry x="0.0583" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="themealdb api" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="410" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="interacts with&amp;nbsp;&lt;div&gt;and displays meals to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21">
+                    <mxGeometry x="0.056" y="1" relative="1" as="geometry">
+                        <mxPoint x="26" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="uL5YY6QMvZRU2Y7WZo8u" name="user interactions">
+        <mxGraphModel dx="809" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="xEPG_y-ys0upNtA2RS9q-1" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;home page&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="70" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="P2N-ikCSMGX1oMK0EgH0-2" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xEPG_y-ys0upNtA2RS9q-2" target="P2N-ikCSMGX1oMK0EgH0-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="P2N-ikCSMGX1oMK0EgH0-3" value="provides username to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="P2N-ikCSMGX1oMK0EgH0-2">
+                    <mxGeometry x="-0.0923" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xEPG_y-ys0upNtA2RS9q-2" value="user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="140" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-2" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="P2N-ikCSMGX1oMK0EgH0-1" target="HD5RSPW3Ekkz0aj2-8f3-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="240" y="230"/>
+                            <mxPoint x="240" y="230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-4" value="passes username to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-2">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="P2N-ikCSMGX1oMK0EgH0-1" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="140" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HD5RSPW3Ekkz0aj2-8f3-1" target="GxeEZaQeK77Ep0-g02Vg-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-5" value="moderation check&lt;div&gt;request&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-3">
+                    <mxGeometry x="-0.2" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-11" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="HD5RSPW3Ekkz0aj2-8f3-1" target="P2N-ikCSMGX1oMK0EgH0-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-12" value="display error, if username fails&lt;div&gt;moderation check&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-11">
+                    <mxGeometry x="-0.0333" relative="1" as="geometry">
+                        <mxPoint x="40" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HD5RSPW3Ekkz0aj2-8f3-1" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="260" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-6" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-1" target="HD5RSPW3Ekkz0aj2-8f3-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-7" value="moderation check&lt;div&gt;response&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-6">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-1" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="370" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-9" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;elbow=horizontal;" edge="1" parent="1" source="HD5RSPW3Ekkz0aj2-8f3-1" target="HD5RSPW3Ekkz0aj2-8f3-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="590" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-10" value="redirects to meal-planner&lt;div&gt;if valid username&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-9">
+                    <mxGeometry x="-0.4439" relative="1" as="geometry">
+                        <mxPoint x="88" y="7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-13" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;meal planner page, pre-load&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="520" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-19" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-14" target="GxeEZaQeK77Ep0-g02Vg-15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-20" value="7. interacts with" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-19">
+                    <mxGeometry x="-0.0769" y="-2" relative="1" as="geometry">
+                        <mxPoint y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-14" value="user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="590" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-15" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="590" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-17" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-15" target="GxeEZaQeK77Ep0-g02Vg-14">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="290" y="570"/>
+                            <mxPoint x="45" y="570"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-18" value="6. displays introduction message&lt;div&gt;and interacts with&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-17">
+                    <mxGeometry x="0.1228" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-24" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-21" target="GxeEZaQeK77Ep0-g02Vg-22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-27" value="1. prompts&lt;div&gt;system content&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-24">
+                    <mxGeometry x="-0.1167" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-29" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-21" target="GxeEZaQeK77Ep0-g02Vg-15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-30" value="5. sends introduction message to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-29">
+                    <mxGeometry x="-0.0167" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-32" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-21" target="GxeEZaQeK77Ep0-g02Vg-31">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-34" value="3. get all food categories&lt;div&gt;get all food ingredients&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-32">
+                    <mxGeometry x="-0.1857" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-21" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="710" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-25" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-22" target="GxeEZaQeK77Ep0-g02Vg-21">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="810"/>
+                            <mxPoint x="340" y="810"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-28" value="2. sends function calls&lt;div&gt;to fetch categories, ingredients&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-25">
+                    <mxGeometry x="0.1167" y="-2" relative="1" as="geometry">
+                        <mxPoint x="38" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-22" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="830" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-33" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-31" target="GxeEZaQeK77Ep0-g02Vg-21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-35" value="4. sends all food categories,&lt;div&gt;&amp;nbsp;ingredients&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-33">
+                    <mxGeometry x="0.1391" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-31" value="themealdb api" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="710" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-36" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;meal planner page, regular conversation&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="940" width="440" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-37" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-39" target="GxeEZaQeK77Ep0-g02Vg-40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-38" value="tells health objective,&lt;div&gt;food preferences to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-37">
+                    <mxGeometry x="-0.0769" y="-2" relative="1" as="geometry">
+                        <mxPoint y="-2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-39" value="user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="1010" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-56" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-40" target="GxeEZaQeK77Ep0-g02Vg-49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-57" value="passes health objectives,&lt;div&gt;food preferences to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-56">
+                    <mxGeometry x="-0.15" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-40" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="1010" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-41" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-40" target="GxeEZaQeK77Ep0-g02Vg-39">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="290" y="990"/>
+                            <mxPoint x="45" y="990"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-42" value="displays response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-41">
+                    <mxGeometry x="0.1228" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-43" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-49" target="GxeEZaQeK77Ep0-g02Vg-52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-44" value="passes health objectives,&lt;div&gt;food preferences to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-43">
+                    <mxGeometry x="-0.1167" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-47" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-49" target="GxeEZaQeK77Ep0-g02Vg-55">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-48" value="get recipes for ingredients" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-47">
+                    <mxGeometry x="-0.1857" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-58" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-49" target="GxeEZaQeK77Ep0-g02Vg-40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-59" value="sends reciepes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-58">
+                    <mxGeometry x="-0.0833" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-49" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="1130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-50" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-52" target="GxeEZaQeK77Ep0-g02Vg-49">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="1230"/>
+                            <mxPoint x="340" y="1230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-51" value="responds with correct ingredients&lt;div&gt;as per health objectives&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-50">
+                    <mxGeometry x="0.1167" y="-2" relative="1" as="geometry">
+                        <mxPoint x="58" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-52" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="1250" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-53" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="GxeEZaQeK77Ep0-g02Vg-55" target="GxeEZaQeK77Ep0-g02Vg-49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-54" value="send recipe details" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GxeEZaQeK77Ep0-g02Vg-53">
+                    <mxGeometry x="0.1391" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GxeEZaQeK77Ep0-g02Vg-55" value="themealdb api" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="1130" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-6" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="5lR3RIT6nDF8Ij0WKozF-1" target="5lR3RIT6nDF8Ij0WKozF-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-12" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="5lR3RIT6nDF8Ij0WKozF-1" target="5lR3RIT6nDF8Ij0WKozF-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-1" value="initialize_conversation()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1440" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-4" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="5lR3RIT6nDF8Ij0WKozF-2" target="5lR3RIT6nDF8Ij0WKozF-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-2" value="user" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="1440" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-8" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5lR3RIT6nDF8Ij0WKozF-5" target="5lR3RIT6nDF8Ij0WKozF-7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-5" value="intent_confirmation()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="1440" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-10" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5lR3RIT6nDF8Ij0WKozF-7" target="5lR3RIT6nDF8Ij0WKozF-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-7" value="extract_python_dictionary()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="1550" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-9" value="get_meals()&lt;div&gt;from TheMealDB api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1550" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5lR3RIT6nDF8Ij0WKozF-11" value="function call&lt;div&gt;get_all_food_categories&lt;/div&gt;&lt;div&gt;get_all_food_ingredients&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1340" width="140" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
