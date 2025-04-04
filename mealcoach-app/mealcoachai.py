@@ -106,19 +106,84 @@ def initialize_conversation(username):
     sample_food_categories = "Vegan, Vegetarian, etc."
     sample_food_ingredient = "Tofu, Rice, Chicken, etc."
     
-    sample_output = {
-           'meal_name': 'Grilled Chicken Quinoa Bowl',
-           'nutrients': 'High in protein, fiber, and healthy fats',
-           'ingredients': ['Chicken Breast',
-            'Quinoa',
-            'Avocado',
-            'Spinach',
-            'Cherry Tomatoes',
-            'Olive Oil'],
-           'main_ingredient': 'Chicken Breast',
-           'food_category': 'Main Course',
-           'description': 'This meal is packed with protein from the chicken, which helps in muscle recovery and strength gain. Quinoa provides complex carbohydrates for sustained energy, while spinach and tomatoes add essential vitamins.'
-        }
+    sample_output = [
+    {
+        "meal_name": "Grilled Chicken Quinoa Bowl",
+        "nutrients": "High in protein, fiber, and healthy fats",
+        "ingredients": [
+        "Chicken Breast",
+        "Quinoa",
+        "Avocado",
+        "Spinach",
+        "Cherry Tomatoes",
+        "Olive Oil"
+        ],
+        "main_ingredient": "Chicken Breast",
+        "food_category": "Main Course",
+        "description": "This meal is packed with protein from the chicken, which helps in muscle recovery and strength gain. Quinoa provides complex carbohydrates for sustained energy, while spinach and tomatoes add essential vitamins."
+    },
+    {
+        "meal_name": "Salmon and Brown Rice Power Bowl",
+        "nutrients": "Rich in Omega-3s, complex carbs, and lean protein",
+        "ingredients": [
+        "Salmon Fillet",
+        "Brown Rice",
+        "Steamed Broccoli",
+        "Sesame Seeds",
+        "Soy Sauce",
+        "Ginger"
+        ],
+        "main_ingredient": "Salmon Fillet",
+        "food_category": "Main Course",
+        "description": "Salmon is a powerhouse of Omega-3 fatty acids, which reduce inflammation and improve muscle recovery. Brown rice provides long-lasting energy, while broccoli and sesame seeds add essential vitamins and minerals."
+    },
+    {
+        "meal_name": "Mediterranean Chickpea Salad",
+        "nutrients": "High in fiber, protein, and antioxidants",
+        "ingredients": [
+        "Chickpeas",
+        "Cucumber",
+        "Cherry Tomatoes",
+        "Feta Cheese",
+        "Olive Oil",
+        "Lemon Juice"
+        ],
+        "main_ingredient": "Chickpeas",
+        "food_category": "Salad",
+        "description": "This refreshing salad is packed with plant-based protein from chickpeas, which support muscle growth. Feta cheese adds a rich flavor while olive oil and lemon juice provide heart-healthy fats."
+    },
+    {
+        "meal_name": "Spicy Tuna Avocado Wrap",
+        "nutrients": "High in protein, Omega-3s, and fiber",
+        "ingredients": [
+        "Tuna",
+        "Whole Wheat Tortilla",
+        "Avocado",
+        "Lettuce",
+        "Greek Yogurt",
+        "Sriracha Sauce"
+        ],
+        "main_ingredient": "Tuna",
+        "food_category": "Wrap",
+        "description": "This high-protein wrap is a great on-the-go option for muscle building. Tuna provides lean protein and Omega-3s, while avocado and Greek yogurt offer healthy fats and probiotics for digestion."
+    },
+    {
+        "meal_name": "Egg and Sweet Potato Scramble",
+        "nutrients": "Packed with protein, vitamins, and complex carbs",
+        "ingredients": [
+        "Eggs",
+        "Sweet Potato",
+        "Spinach",
+        "Mushrooms",
+        "Onions",
+        "Olive Oil"
+        ],
+        "main_ingredient": "Eggs",
+        "food_category": "Breakfast",
+        "description": "This high-protein breakfast helps in muscle repair with eggs as the primary protein source. Sweet potatoes provide slow-digesting carbs for sustained energy, while spinach and mushrooms add essential vitamins."
+    }
+    ]
+
     
     delimiter = "######"
     prompt = f"""
@@ -135,10 +200,23 @@ def initialize_conversation(username):
     If the user asks for more options, you can then share a few more varied options. But you will never show the entire list of food categories and food ingredients.
 
     {delimiter}
+    Before suggesting meals, think step by step: First, understand the user’s dietary preferences and health goals. Then, select relevant food categories and ingredients from the fetched list. Finally, generate five nutritionally balanced meals while ensuring diversity in meal composition.
+
+    {delimiter}
     The final output should contain meal name, which nutrients it contains, list of all the ingredients, name of the main ingredient, food category and a description of connection of health objective and the ingredients.
     The ingredient should only be from the list of ingredients that you fetched. The main_ingredient should be from the list of ingredients that you fetched.
     The final output should contain 5 meals only in a json format without any code markers. If you do not show 5 meals, you will be heavily penalized.
     the final output will look like {sample_output}
+
+    {delimiter}
+    Here is an example of how the conversation should go:
+    {delimiter}
+    User: Hi! I’m looking for some meal suggestions.
+    Assistant:Hello! I’m an expert nutritionist and meal planner, and I’d love to help you. Before we get started, could you tell me about your dietary preferences? Are you Vegan, Vegetarian, or do you prefer something else?
+    User: I usually eat chicken and fish but avoid red meat.
+    Assistant: Got it! So, you lean towards a high-protein diet with lean meats. What’s your main health goal? Do you want to lose weight, build muscle, or just maintain a balanced diet?
+    User:I’m trying to build muscle while keeping my meals healthy.
+    Assistant: Great choice! A protein-rich diet with balanced carbs and healthy fats will help with muscle growth and recovery. Here are five meal options tailored for you: {sample_output}
 
     {delimiter}
     Start by greeting the user and introducing yourself.
