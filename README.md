@@ -2,6 +2,7 @@
 ![MealCoach](readme-images/meal-planner-ui.png)
 
 ## Project Overview
+
 MealCoach is a personalized meal planning application designed to help users create healthy, balanced, and customized meal plans. By leveraging AI and external APIs, MealCoach provides users with tailored meal suggestions based on their dietary preferences, restrictions, and goals.
 
 ## Features
@@ -18,33 +19,48 @@ MealCoach is a personalized meal planning application designed to help users cre
 3. **Recipe Integration**: Recipes are fetched from TheMealDB API and displayed to the user.
 4. **Meal Plan Generation**: Users can view and customize their meal plans.
 
+<br/>
+<br/>
+<br/>
+
 ## User Experience
 
-### Home Page
+### __Home Page__
 ![Home Page](readme-images/home-page-ui.png)
 
-### Home Page inappropriate username
+### __Home Page inappropriate username__
 ![Home Page inappropriate username](readme-images/home-page-inappropriate-username-ui.png)
 
-### Meal Planner introduction
+### __Meal Planner introduction__
 ![Meal Planner introduction](readme-images/meal-planner-introduction-ui.png)
 
-### Meal Planner recommendations
+### __Meal Planner recommendations__
 ![Meal Planner recommendations](readme-images/meal-planner-recommendation-ui.png)
 
-### Start over the conversation
+<br/><br/><br/><br/><br/><br/><br/>
+
+### __Start over the conversation__
 ![Start over the conversation](readme-images/meal-planner-restart-conversation-ui.png)
 
-### Inappropriate conversation
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### __Inappropriate conversation__
 ![Inappropriate conversation](readme-images/meal-planner-inappropriate-conversation-ui.png)
 
-## Challenges Faced
+<br/><br/><br/><br/><br/><br/><br/>
+
+### __Challenges Faced__
+
 One of the key challenges faced during the development of MealCoach was integrating recipe suggestions from both OpenAI's language model (LLM) and TheMealDB API. While the LLM provides diverse and personalized recipe recommendations, TheMealDB API offers detailed cooking instructions and YouTube video links, which are essential for an enhanced user experience.
 
 To address this, we decided to use only the "main ingredient" from the LLM's recommendations and fetch corresponding recipes from TheMealDB API. This approach ensures that users receive recipes with complete instructions and multimedia support, while still leveraging the personalization capabilities of the LLM.
 
-### Future Scope
+### __Future Scope__
+
 In the future, we aim to improve the matching process between the LLM's recipe responses and the recipes available in TheMealDB API. This could involve advanced natural language processing techniques to better align the LLM's suggestions with the API's database, ensuring even more accurate and tailored meal recommendations.
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 
 # Technical Details
 
@@ -69,6 +85,8 @@ In the future, we aim to improve the matching process between the LLM's recipe r
     - `meal-planner.html`: Meal planning interface.
   - `requirements.txt`: Lists all dependencies required to run the application.
 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 ## System Design
 
 The MealCoach application is designed with a modular architecture to ensure seamless interaction between the user, backend, and external APIs. Below is an overview of the system's architecture:
@@ -84,9 +102,11 @@ This architecture ensures a smooth and efficient user experience by leveraging e
 
 ![System Architecture](readme-images/system-architecture.png)
 
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
 ## Technical Implementation
 
-### User Interaction: Home Page
+### __User Interaction: Home Page__
 
 This diagram illustrates the user interaction flow on the home page of the MealCoach application:
 
@@ -101,7 +121,9 @@ This process ensures a safe and user-friendly experience by validating usernames
 
 ![Home Page Interaction](readme-images/home-page-interaction.png)
 
-### User Interaction: Meal Planner Page (Pre-Load)
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### __User Interaction: Meal Planner Page (Pre-Load)__
 
 This diagram illustrates the interaction flow when the Meal Planner page is pre-loaded in the MealCoach application:
 
@@ -115,11 +137,11 @@ This diagram illustrates the interaction flow when the Meal Planner page is pre-
 
 This process ensures that the Meal Planner page is pre-loaded with all necessary data, providing a seamless and interactive user experience.
 
-### Meal Planner Pre-Load
-
 ![Meal Planner Pre-Load](readme-images/meal-planner-introduction.png)
 
-### User Interaction: Meal Planner Page (Regular Conversation)
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### __User Interaction: Meal Planner Page (Regular Conversation)__
 
 This diagram illustrates the interaction flow during regular user interactions on the Meal Planner page of the MealCoach application:
 
@@ -133,9 +155,38 @@ This diagram illustrates the interaction flow during regular user interactions o
 
 This process ensures that the user receives personalized meal suggestions tailored to their health goals and preferences.
 
-### Meal Planner Conversation
-
 ![Meal Planner Conversation](readme-images/meal-planner-conversation.png)
 
-### App Backend details
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+### __App Backend Details__
+
+The app backend serves as the central hub of the MealCoach application, orchestrating communication between the user interface, OpenAI, and TheMealDB API. Below is a detailed breakdown of its responsibilities:
+
+1. **User Input Handling**:
+  - Receives user inputs such as dietary preferences, restrictions, and health objectives from the UI.
+  - Validates and processes the inputs to ensure they are suitable for further analysis.
+
+2. **AI Integration**:
+  - Sends user inputs to OpenAI for natural language processing and personalized meal recommendations.
+  - Handles AI responses, extracting key information such as suggested ingredients and meal ideas.
+
+3. **API Communication**:
+  - Interfaces with TheMealDB API to fetch detailed recipe data, including cooking instructions, images, and video links.
+  - Ensures that the recipes align with the AI-generated suggestions for a cohesive user experience.
+
+4. **Moderation and Validation**:
+  - Performs moderation checks on user inputs (e.g., usernames) using OpenAI to maintain a safe and respectful environment.
+  - Validates API responses to ensure data integrity and relevance.
+
+5. **Data Coordination**:
+  - Combines AI-generated suggestions with TheMealDB API data to create comprehensive meal plans.
+  - Manages data flow between different components to ensure seamless operation.
+
+6. **Error Handling**:
+  - Implements robust error-handling mechanisms to address issues such as API failures or invalid user inputs.
+  - Provides meaningful feedback to the user in case of errors.
+
+By efficiently managing these responsibilities, the app backend ensures a smooth and reliable experience for MealCoach users.
+
 ![App Backend Details](readme-images/app-backend-details.png)
