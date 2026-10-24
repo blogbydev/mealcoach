@@ -1,23 +1,23 @@
 <mxfile host="65bd71144e">
     <diagram id="rM9DuOJ5Ojk6an8O_4wX" name="system context">
-        <mxGraphModel dx="978" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="847" dy="442" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="23" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="11">
+                <mxCell id="23" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="8" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" value="sends user&lt;div&gt;queries to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="23">
+                <mxCell id="25" value="sends user&lt;div&gt;queries to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="23" vertex="1" connectable="0">
                     <mxGeometry x="-0.35" relative="1" as="geometry">
                         <mxPoint y="14" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="8" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="8" value="UI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="305" y="140" width="195" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="9" target="8">
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="75" y="70"/>
@@ -25,69 +25,69 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="20" value="interacts with" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="19">
+                <mxCell id="20" value="interacts with" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="19" vertex="1" connectable="0">
                     <mxGeometry x="-0.0215" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="9" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="9" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="60" y="140" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="8">
+                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="11" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="26" value="sends&lt;div&gt;responses to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="24">
+                <mxCell id="26" value="sends&lt;div&gt;responses to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="24" vertex="1" connectable="0">
                     <mxGeometry x="0.025" y="1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="11" target="12">
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="11" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="depends for natural language processing&lt;div&gt;and knowledge on health objectives and ingredient nutrition&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="27">
+                <mxCell id="29" value="depends for natural language processing&lt;div&gt;and knowledge on health objectives and ingredient nutrition&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="27" vertex="1" connectable="0">
                     <mxGeometry x="0.1875" relative="1" as="geometry">
                         <mxPoint x="55" y="30" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="11" target="13">
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="11" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="depends for names of food categories, food ingredients,&lt;div&gt;recipes, cooking instructions, recipe image and youtube video&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="30">
+                <mxCell id="32" value="depends for names of food categories, food ingredients,&lt;div&gt;recipes, cooking instructions, recipe image and youtube video&lt;/div&gt;&lt;div&gt;on&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="30" vertex="1" connectable="0">
                     <mxGeometry x="0.5022" y="-1" relative="1" as="geometry">
                         <mxPoint x="1" y="16" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="11" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="11" value="app-backend" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="305" y="280" width="195" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="11">
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="12" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="responds to user queries,&lt;div&gt;requests function calls to get&lt;/div&gt;&lt;div&gt;information from themealdp api&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="28">
+                <mxCell id="31" value="responds to user queries,&lt;div&gt;requests function calls to get&lt;/div&gt;&lt;div&gt;information from themealdp api&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="28" vertex="1" connectable="0">
                     <mxGeometry x="0.3679" y="1" relative="1" as="geometry">
                         <mxPoint x="30" y="-7" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="12" value="openai" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="500" y="410" width="290" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="13" target="11">
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="13" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="responds to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="33">
+                <mxCell id="34" value="responds to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="33" vertex="1" connectable="0">
                     <mxGeometry x="0.0583" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="13" value="themealdb api" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="13" value="themealdb api" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="410" width="280" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8" target="9">
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="8" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="interacts with&amp;nbsp;&lt;div&gt;and displays meals to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21">
+                <mxCell id="22" value="interacts with&amp;nbsp;&lt;div&gt;and displays meals to&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="21" vertex="1" connectable="0">
                     <mxGeometry x="0.056" y="1" relative="1" as="geometry">
                         <mxPoint x="26" y="-1" as="offset"/>
                     </mxGeometry>
